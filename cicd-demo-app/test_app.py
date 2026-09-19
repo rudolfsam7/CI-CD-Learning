@@ -10,7 +10,7 @@ def test_home_page():
     response = client.get("/")
 
     assert response.status_code == 200
-    assert "Just Checking......" in response.text
+    assert "CI/CD" in response.text
 
 
 def test_health_check():
