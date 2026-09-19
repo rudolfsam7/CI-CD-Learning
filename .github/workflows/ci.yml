@@ -10,7 +10,6 @@ on:
 
 jobs:
   build-and-scan:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -25,7 +24,7 @@ jobs:
         with:
           python-version: "3.12"
 
-      # 3. Install Python dependencies
+      # 3. Install dependencies
       - name: Install dependencies
         working-directory: ./cicd-demo-app
         run: |
@@ -47,18 +46,9 @@ jobs:
             -t cicd-demo-app:${{ github.sha }} \
             ./cicd-demo-app
 
-      # 6. Install Trivy
-      - name: Install Trivy
-        uses: aquasecurity/trivy-action@0.33.1
-        with:
-          scan-type: fs
-          scan-ref: ./cicd-demo-app
-          format: table
-          exit-code: '0'
-
-      # 7. Scan Docker image with Trivy
+      # 6. Scan Docker image with Trivy
       - name: Trivy Docker image scan
-        uses: aquasecurity/trivy-action@0.33.1
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
           image-ref: cicd-demo-app:${{ github.sha }}
           format: table
