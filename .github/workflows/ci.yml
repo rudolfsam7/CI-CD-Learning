@@ -25,10 +25,12 @@ jobs:
           python-version: "3.12"
 
       - name: Install dependencies
+        working-directory: ./cicd-demo-app
         run: |
           python -m pip install --upgrade pip
-          pip install -r cicd-demo-app/requirements.txt
+          pip install -r requirements.txt
 
       - name: Run tests
+        working-directory: ./cicd-demo-app
         run: |
           pytest
