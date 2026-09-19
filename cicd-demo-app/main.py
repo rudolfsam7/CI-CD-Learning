@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 
-app = FastAPI(title="CI/CD Demo Application")
+app = FastAPI(title="Just Checking......")
 
 
 @app.get("/", response_class=HTMLResponse)
@@ -10,12 +10,12 @@ def home():
     <!DOCTYPE html>
     <html>
     <head>
-        <title>CI/CD Demo</title>
+        <title>Deployed Successful</title>
     </head>
     <body>
-        <h1>🚀 CI/CD Demo Application</h1>
+        <h1>🚀 CI/CD  Application</h1>
         <p>Python FastAPI Application</p>
-        <p>Application Status: Running</p>
+        <p>Application Status: Running on Render</p>
         <p>Deployed using GitHub Actions</p>
     </body>
     </html>
